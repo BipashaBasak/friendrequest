@@ -1,0 +1,21 @@
+<h3>All Users List</h3>
+<br><br>
+
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-4" *ngFor="let user of users; let i = index">
+            <div class="card">
+              <img src="https://source.unsplash.com/collection/190727/1400x900" class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title">{{user.name}}</h5>
+                    <h6 class="card-subtitle mb-2 text-muted">{{user.email}}</h6>
+                    <p class="card-text">{{user.city}}</p>
+                    <a routerLink="/texts/{{user.userId}}" class="card-link">Start Conversation</a>
+                    <a href="javascript:void(0);" (click)="addFriend(user.userId)" class="card-link">Add Friend</a>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

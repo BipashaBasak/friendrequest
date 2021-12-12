@@ -1,0 +1,20 @@
+
+<form [formGroup]="loginForm" (ngSubmit)="loginSubmit(loginForm)">
+    <h1>Login</h1>
+    
+    Email: <input type="email" formControlName="email">
+    <span *ngIf="loginForm.get('email').invalid && submitForm" style="color: rgb(4, 240, 181);">*Please enter a valid email</span><br><br>
+
+    Password: <input type="password" formControlName="password">
+    <span *ngIf="loginForm.get('password').invalid && submitForm" style="color: rgb(4, 240, 189);">*Please enter a valid password</span><br><br>
+
+   
+    <button type="submit">Login</button>
+
+</form>
+
+<br>
+<a routerLink ="register">Create Account</a>
+
+<!-- <br>
+<a href="register">default link</a> -->

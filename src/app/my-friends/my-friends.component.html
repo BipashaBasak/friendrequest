@@ -1,0 +1,31 @@
+<h3>My Friend Lists</h3>
+<br><br>
+
+
+<div class="container">
+    <div class="row" *ngIf="friends.length > 0">
+        <div class="col-md-4" *ngFor="let friend of friends; let i = index">
+            <div class="card">
+                <img src="https://source.unsplash.com/collection/190727/1400x900" class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title">{{friend.name}}</h5>
+                    <h6 class="card-subtitle mb-2 text-muted">{{friend.email}}</h6>
+                    <p class="card-text">{{friend.city}}</p>
+                    <a routerLink="/texts/{{friend.userId}}" class="card-link">Chat</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+    <div class="row" *ngIf="friends.length === 0">
+        <div class="col">
+            <div class="card">
+                <p>You don't have any friend requests</p>
+            </div>
+        </div>
+    </div>
+
+    
+
+

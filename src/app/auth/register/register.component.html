@@ -1,0 +1,31 @@
+
+
+<form [formGroup]="registerForm" (ngSubmit)="registerSubmit(registerForm)">
+    <h1>Register Form</h1>
+    Name: <input type="text" formControlName="name">
+    <span *ngIf="registerForm.get('name').invalid && submitForm" style="color: rgb(240, 4, 134);">*Please enter a valid name</span><br><br>
+    
+    Email: <input type="email" formControlName="email">
+    <span *ngIf="registerForm.get('email').invalid && submitForm" style="color: rgb(240, 4, 142);">*Please enter a valid email</span><br><br>
+
+    Password: <input type="password" formControlName="password">
+    <span *ngIf="registerForm.get('password').invalid && submitForm" style="color: rgb(240, 4, 161);">*Please enter a valid password</span><br><br>
+
+    Gender: <input type="gender" formControlName="gender">
+    <span *ngIf="registerForm.get('gender').invalid && submitForm" style="color: rgb(240, 4, 201);">*Please enter a valid gender</span><br><br>
+
+    City: 
+    <!-- <input type="city" formControlName="city"> -->
+    <select formControlName="city">
+        <option value="">Select your city</option>
+        <option *ngFor="let city of cities" value="{{city.id}}">{{city.name}}</option>
+    </select>
+    <span *ngIf="registerForm.get('city').invalid && submitForm" style="color: rgb(240, 4, 134);">*Please enter a valid city</span><br><br>
+    
+    <button type="submit">Register</button>
+
+</form>
+
+
+<br>
+<a routerLink ="">Login</a>

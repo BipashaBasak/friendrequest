@@ -1,0 +1,35 @@
+<h3>About Page</h3>
+
+
+<div *ngFor="let post of posts; let i = index" style="border: 2px solid rgb(27, 240, 8);">
+    <div>Number: {{i + 1}}</div>
+    <div>Id: {{post.id}}</div>
+    <div>Title: {{post.title}}</div>
+    <div>Body: {{post.body}}</div>
+
+</div>
+
+<!-- <div>{{data1?.status}}</div>
+<div>{{data1?.data}}</div> -->
+
+<!-- <div *ngIf="data1">    
+<div>{{data1.status}}</div>
+<div>{{data1.data}}</div>
+</div> -->
+
+<table style="border: 2px solid purple;">
+    <tr>
+        <th>Name</th>
+        <th>Email</th>
+        <th>Gender</th>
+        <th>City</th>
+    </tr>
+
+    <tr *ngFor="let user of users; let i = index;">
+        <td>{{user.name}}</td>
+        <td>{{user.email}}</td>
+        <td>{{user.gender}}</td>
+        <td>{{user.city}}</td>
+    </tr>
+
+</table>

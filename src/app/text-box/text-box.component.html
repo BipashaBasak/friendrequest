@@ -1,0 +1,21 @@
+
+<div>
+    <div style="text-decoration: none;">
+        <div *ngFor="let msg of messages">
+            <div *ngIf="currentUser === msg.fromUserId"><b>{{sender.name}}: </b>{{msg.text}}</div>
+            <div *ngIf="currentUser !== msg.fromUserId"><b>{{receiver.name}}: </b>{{msg.text}}</div>
+        </div>
+    </div>
+</div>
+
+
+<form [formGroup]="chatForm" (ngSubmit)="chatSubmit(chatForm)">
+    <div class="row mb-3">
+  
+      <div class="col-sm-11">
+        <input type="text" class="form-control" placeholder="add your message!" formControlName="text">
+      </div>
+    </div>
+    <button type="submit" class="btn btn-warning">Send</button>
+  </form>
+  

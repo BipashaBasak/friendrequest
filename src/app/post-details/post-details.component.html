@@ -1,0 +1,84 @@
+<h3>Post Details Page</h3>
+<br>
+
+
+<div class="container" *ngIf="post">
+  <div class="row">
+    <div class="col">
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title">{{post.createdBy.name}}</h5>
+          <h6 class="card-subtitle mb-2 text-muted">{{post.createdAt | date: 'medium' }}</h6>
+          <p class="card-text">{{post.content}}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+<div>
+  <a href="javascript:void(0)" (click)="addRemoveLike(post.id)">{{likeText}}</a> |
+  {{likeCount}} people like this post.
+
+
+  <!-- Button trigger modal -->
+<!-- <button type="button" class="btn btn-success" data-toggle="modal" data-target="#exampleModal">
+  Launch demo modal
+</button>
+
+ <!-- Modal  -->
+<!-- <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Hello</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        ...
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
+</div>  -->
+
+
+
+<form [formGroup]="commentForm" (ngSubmit)="commentSubmit(commentForm)">
+  <div class="row mb-3">
+
+    <div class="col-sm-11">
+      <input type="text" class="form-control" placeholder="add your comment!" formControlName="content">
+    </div>
+  </div>
+  <button type="submit" class="btn btn-warning">Comment</button>
+</form>
+
+
+
+<a class="btn btn-success btn-circle text-uppercase" data-toggle="collapse" href="javascript:void(0);"><span
+    class="glyphicon glyphicon-comment"></span> {{comments.length}} comments</a>
+<br><br>
+
+
+<div class="media-body" *ngFor="let comment of comments; let i = index">
+  <div class="well well-lg">
+
+
+    <h4 class="media-heading text-uppercase reviews">{{comment.user.name}}</h4>
+    <p class="media-heading text-uppercase reviews">{{comment.createdAt | date: 'medium'}} </p>
+
+    <p class="media-comment">
+      {{comment.content}}
+    </p>
+
+  </div>
+</div>
